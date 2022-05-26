@@ -1,6 +1,19 @@
 import { useState } from "react";
+import { Auth } from 'aws-amplify';
+
+var accessToken = ""
+var jwt = ""
+
+Auth.currentSession().then(res => {
+    accessToken = res.getAccessToken()
+    jwt = accessToken.getJwtToken()
+})
+
+
+
 
 const SearchByTag = () => {
+
 
     const [userTags, setTags] = useState('');
 
@@ -12,9 +25,12 @@ const SearchByTag = () => {
         const inputTags = { tags };
         console.log(inputTags)
 
-        let response = await fetch('https://ev3z7vr1oe.execute-api.us-east-1.amazonaws.com/test/searchbytag/', {
+        let response = await fetch(' https://ev3z7vr1oe.execute-api.us-east-1.amazonaws.com/test/searchbytag', {
             method: 'POST',
-            headers: { "Content-Type": "application/json" },
+            headers: {
+                "Content-Type": "application/json",
+                Authorisation: "Bearer" + jwt
+            },
             body: JSON.stringify(inputTags)
         })
 

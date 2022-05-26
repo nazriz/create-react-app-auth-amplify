@@ -2,6 +2,7 @@ import React, { useCallback } from 'react'
 import { useDropzone } from 'react-dropzone'
 import handleSubmit from './UploadToS3'
 
+
 function Dropzone() {
     const onDrop = useCallback((acceptedFiles) => {
         acceptedFiles.forEach((file) => {
@@ -12,6 +13,8 @@ function Dropzone() {
             reader.onload = () => {
                 // Do whatever you want with the file contents
                 const test = reader.result;
+
+                //push to s3
                 handleSubmit(test)
 
                 // const binaryStr = reader.result

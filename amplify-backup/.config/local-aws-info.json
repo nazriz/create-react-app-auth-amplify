@@ -1,0 +1,7 @@
+{
+  "devm": {
+    "configLevel": "project",
+    "useProfile": false,
+    "awsConfigFilePath": "/Users/nazimrizvic/.amplify/awscloudformation/LO30CJIoqj"
+  }
+}
