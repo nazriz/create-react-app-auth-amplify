@@ -1,11 +1,10 @@
 
 
 
-const handleSubmit = async (files) => {
+const handleSubmit = async (files, filename) => {
 
 
-    // const f = files[0]
-    // console.log(f['file']);
+
 
     function dataURItoBlob(dataURI) {
         // convert base64/URLEncoded data component to raw binary data held in a string
@@ -30,12 +29,13 @@ const handleSubmit = async (files) => {
 
     // need to find a way to change the name of the image, doesn't work in the same way as before
     // const url = 'https://bjrz9uwf0k.execute-api.us-east-1.amazonaws.com/prod/itagimages/test.jpg';
-    const url = 'https://ev3z7vr1oe.execute-api.us-east-1.amazonaws.com/test/itagimagesbucket/react_test.jpg'
+    var url = 'https://ev3z7vr1oe.execute-api.us-east-1.amazonaws.com/t4/itagimagesbucket/'
+    
 
 
     const uploadToS3Bucket = async () => {
         var imgBlob = dataURItoBlob(files)
-        const response = await fetch(url, {
+        const response = await fetch(url + filename, {
             method: 'PUT',
             body: imgBlob,
             headers: {
