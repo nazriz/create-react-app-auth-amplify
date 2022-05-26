@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "aws-amplify": "^4.3.14",
     "@aws-amplify/ui-react": "^1.2.6",
+    "aws-amplify": "^4.3.14",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-dropzone": "^14.2.1",
     "react-scripts": "^5.0.0"
   },
   "resolutions": {
