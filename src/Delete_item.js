@@ -13,17 +13,16 @@ Auth.currentSession().then(res => {
 
 
 const DeleteItem = () => {
-
-
     const [inputURL, setInputURL] = useState('');
+    const [isComplete, setIsComplete] = useState(false)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         const url = inputURL;
+
         const deleteURL = { url };
         console.log(deleteURL)
-
         let response = await fetch('https://ev3z7vr1oe.execute-api.us-east-1.amazonaws.com/test/delete_image', {
             method: 'POST',
             headers: {
@@ -34,6 +33,9 @@ const DeleteItem = () => {
 
         let data = await response.text();
         console.log(data);
+        if (data == "Image Successfully Deleted")
+            setIsComplete(true);
+        console.log(isComplete);
     }
 
 
@@ -49,6 +51,7 @@ const DeleteItem = () => {
                 <button>Submit </button>
                 <p>{inputURL}</p>
             </form>
+            {isComplete && <p>This URL is no longer in the database</p>}
         </div>
     );
 };
