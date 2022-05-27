@@ -3,7 +3,9 @@
 
 const handleSubmit = async (files, filename) => {
 
-
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
 
 
     function dataURItoBlob(dataURI) {
@@ -43,8 +45,8 @@ const handleSubmit = async (files, filename) => {
             headers: {
                 'Content-Type': 'image/jpeg'
             }
-        })
-
+        }).then(res => console.log(res))
+        await sleep(7000)
         const retrieveImage = await fetch('https://ev3z7vr1oe.execute-api.us-east-1.amazonaws.com/test/retrieve_images_based_on_tags', {
             method: 'POST',
             headers: {
