@@ -7,6 +7,7 @@ import aws_exports from './aws-exports';
 import DropzoneItag from './Upload_itag'
 import DropzoneImageForImage from './Upload_imageforimage'
 import SearchByTag from './searchByTag';
+import DeleteItem from './Delete_item';
 import { Auth } from 'aws-amplify';
 Amplify.configure(aws_exports);
 
@@ -27,6 +28,7 @@ class App extends Component {
         <DropzoneItag />
         <SearchByTag />
         <DropzoneImageForImage />
+        <DeleteItem />
       </div>
     );
   }
