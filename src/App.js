@@ -27,7 +27,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Welcome to the Object Detection Web Application</h1>
+        <h1>Welcome to Team 15's Object Detection Web Application</h1>
         <AmplifySignOut />
         <Navigation />
         <Main />
@@ -45,7 +45,7 @@ const Navigation = () => (
       <li><NavLink exact activeClassName="about" to='/imgforimage'>Search Images by Uploading an Image</NavLink></li>
       <li><NavLink exact activeClassName="current" to='/imgfortag'>Search Images By Tags</NavLink></li>
       <li><NavLink exact activeClassName="current" to='/addtag'>Add Tags</NavLink></li>
-      <li><NavLink exact activeClassName="current" to='/removeimagetags'>Remove Image Tags</NavLink></li>
+      <li><NavLink exact activeClassName="current" to='/removeimagetags'>Remove Tags</NavLink></li>
       <li><NavLink exact activeClassName="current" to='/deleteitem'>Delete Items</NavLink></li>
     </ul>
   </nav>
@@ -53,7 +53,7 @@ const Navigation = () => (
 
 const Home = () => (
   <div className='home'>
-    <p> Upload Image</p>
+    <p> This page allows you to upload an image to the application</p>
     <DropzoneItag />
   </div>
 );
