@@ -29,35 +29,33 @@ const handleSubmit = async (files, filename) => {
 
     // need to find a way to change the name of the image, doesn't work in the same way as before
     // const url = 'https://bjrz9uwf0k.execute-api.us-east-1.amazonaws.com/prod/itagimages/test.jpg';
-    var url = 'https://ev3z7vr1oe.execute-api.us-east-1.amazonaws.com/t4/itagimagesbucket/'
-    
+    var url = 'https://ev3z7vr1oe.execute-api.us-east-1.amazonaws.com/test/tagsbasedonimagebucket/'
 
+    const name = filename;
+    const dbName = { name };
+    console.log(dbName);
 
     const uploadToS3Bucket = async () => {
         var imgBlob = dataURItoBlob(files)
-        const response = await fetch(url + filename, {
+        const putImage = await fetch(url + filename, {
             method: 'PUT',
             body: imgBlob,
             headers: {
                 'Content-Type': 'image/jpeg'
             }
         })
-        const data = await response.text();
+
+        const retrieveImage = await fetch('https://ev3z7vr1oe.execute-api.us-east-1.amazonaws.com/test/retrieve_images_based_on_tags', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(dbName)
+        })
+        let data = await retrieveImage.text();
+        console.log(data);
 
     }
-
-    // function uploadToS3Bucket() {
-    //     var imgBlob = dataURItoBlob(files)
-    //     let response = fetch(url, {
-    //         method: 'PUT',
-    //         body: imgBlob,
-    //         headers: {
-    //             'Content-Type': 'image/jpeg'
-    //         }
-    //     })
-
-    // }
-
     uploadToS3Bucket();
 }
 export default handleSubmit

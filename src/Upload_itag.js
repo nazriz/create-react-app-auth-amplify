@@ -1,10 +1,10 @@
 import React, { useCallback } from 'react'
 import { useDropzone } from 'react-dropzone'
-import handleSubmit from './UploadToS3'
+import handleSubmit from './UploadToS3_itagimages'
 
 var filename;
 
-function Dropzone() {
+function DropzoneItag() {
     const onDrop = useCallback((acceptedFiles) => {
         acceptedFiles.forEach((file) => {
             const reader = new FileReader()
@@ -46,5 +46,5 @@ function Dropzone() {
 }
 
 
-<Dropzone />
-export default Dropzone
+<DropzoneItag />
+export default DropzoneItag
