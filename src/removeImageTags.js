@@ -13,6 +13,7 @@ Auth.currentSession().then(res => {
 
 
 const RemoveImageTags = () => {
+    const [isComplete, setIsComplete] = useState(false);
 
 
     const [targetURL, setTargetURL] = useState('');
@@ -38,6 +39,8 @@ const RemoveImageTags = () => {
 
         let data = await response.text();
         console.log(data);
+        if (data === "Tags Successfully Updated")
+            setIsComplete(true);
 
     }
 
@@ -58,6 +61,8 @@ const RemoveImageTags = () => {
                     onChange={(e) => setTags(e.target.value)} />
                 <button>Remove Tags</button>
             </form>
+            {isComplete && <p>Tag has been removed</p>}
+            {!isComplete && <p>Unable to remove tag</p>}
         </div>
     );
 };

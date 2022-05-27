@@ -13,6 +13,7 @@ Auth.currentSession().then(res => {
 
 
 const AddImageTags = () => {
+    const [isComplete, setIsComplete] = useState(false);
 
 
     const [targetURL, setTargetURL] = useState('');
@@ -39,6 +40,8 @@ const AddImageTags = () => {
         let data = await response.text();
         console.log(data);
 
+        if (data === "Tags Successfully Updated")
+            setIsComplete(true);
     }
 
 
@@ -58,6 +61,8 @@ const AddImageTags = () => {
                     onChange={(e) => setTags(e.target.value)} />
                 <button>Add Tags</button>
             </form>
+            {isComplete && <p>Tag has been added</p>}
+            {/* {!isComplete && <p>Unable to add tag</p>} */}
         </div>
     );
 };
