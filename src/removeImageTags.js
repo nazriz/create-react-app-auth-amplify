@@ -62,7 +62,7 @@ const RemoveImageTags = () => {
                 <button>Remove Tags</button>
             </form>
             {isComplete && <p>Tag has been removed</p>}
-            {!isComplete && <p>Unable to remove tag</p>}
+            {/* {!isComplete && <p>Unable to remove tag</p>} */}
         </div>
     );
 };

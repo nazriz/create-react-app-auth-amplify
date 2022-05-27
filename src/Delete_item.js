@@ -14,7 +14,7 @@ Auth.currentSession().then(res => {
 
 const DeleteItem = () => {
     const [inputURL, setInputURL] = useState('');
-    const [isComplete, setIsComplete] = useState(false)
+    const [isComplete, setIsComplete] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();

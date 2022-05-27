@@ -13,8 +13,9 @@ Auth.currentSession().then(res => {
 
 
 const SearchByTag = () => {
+    const [isComplete, setIsComplete] = useState(false);
 
-
+    var data = ''
     const [userTags, setTags] = useState('');
 
     const handleSubmit = async (e) => {
@@ -33,10 +34,16 @@ const SearchByTag = () => {
             },
             body: JSON.stringify(inputTags)
         })
+        // console.log(response);
+        data = await response.json();
+        console.log(data.links[0]);
+        console.log(data.links[0] === "No tags match in database");
 
-        let data = await response.json();
-        console.log(data);
+        var url_ = JSON.stringify(data)
+        alert(url_.slice(url_.indexOf("https"), url_.indexOf(".jpg")))
 
+        if (!data.links[0] === "No tags match in database")
+            setIsComplete(true);
     }
 
 
@@ -51,6 +58,7 @@ const SearchByTag = () => {
                     onChange={(e) => setTags(e.target.value)} />
                 <button>Submit Tags</button>
                 <p>{userTags}</p>
+            {/* {isComplete && <p>This tag has an</p>} */}
             </form>
         </div>
     );
