@@ -53,42 +53,48 @@ const Navigation = () => (
 
 const Home = () => (
   <div className='home'>
-    <p> This page allows you to upload an image to the application</p>
+    <em>This page allows you to upload an image to the application</em>
+    <br></br>
     <DropzoneItag />
   </div>
 );
 
 const ImgForImage = () => (
   <div className='about'>
-    <p> Search Image for Images</p>
+    <em>Here, you can upload an image and recieve similar images based on your uploaded image tags</em>
+    <br></br>
     <DropzoneImageForImage />
   </div>
   );
 
 const ImgForTag = () => (
   <div className='ImgForTag'>
-    <p> Search Image By Tags</p>
+    <em>Add in your tags, and you can recieve images based on them</em>
+    <br></br>
     <SearchByTag />
   </div>
   );
     
 const AddTag = () => (
   <div className='AddTag'>
-    <p> Add Tags</p>
+    <em>Input tags to add them to your our online database</em>
+    <br></br>
     <AddImageTags />
   </div>
 );
 
 const RemoveImageTagss = () => (
   <div className='RemoveImageTags'>
-    <p> Remove Tags</p>
+    <em>Input tags to remove them from our online database</em>
+    <br></br>
     <RemoveImageTags />
   </div>
 );
 
 const DeleteItems = () => (
   <div className='DeleteItem'>
-    <p> Delete Items</p>
+    <p>This page allows you to delete items from our database</p>
+    <br></br>
     <DeleteItem />
   </div>
 );

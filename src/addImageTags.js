@@ -44,7 +44,7 @@ const AddImageTags = () => {
 
     return (
         <div>
-            <h2> Add new tags to image</h2>
+            {/* <h2> Add new tags to image</h2> */}
             <form onSubmit={handleSubmit}>
                 <label> URL: </label>
                 <input

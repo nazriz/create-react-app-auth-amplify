@@ -39,7 +39,7 @@ const DeleteItem = () => {
 
     return (
         <div>
-            <h2> Delete Item</h2>
+            {/* <h2> Delete Item</h2> */}
             <form onSubmit={handleSubmit}>
                 <label> Submit URL to delete </label>
                 <input

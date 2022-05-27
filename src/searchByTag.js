@@ -42,7 +42,7 @@ const SearchByTag = () => {
 
     return (
         <div>
-            <h2> Search by tag</h2>
+            {/* <h2> Search by tag</h2> */}
             <form onSubmit={handleSubmit}>
                 <label> Tags: </label>
                 <input
